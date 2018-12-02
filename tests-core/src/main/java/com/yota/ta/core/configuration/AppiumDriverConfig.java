@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.File;
 import java.net.URL;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -53,7 +54,7 @@ public class AppiumDriverConfig {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-        capabilities.setCapability(MobileCapabilityType.APP, app);
+        capabilities.setCapability(MobileCapabilityType.APP, new File(app));
         capabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         capabilities.setCapability("appPackage", "org.wikipedia");
         capabilities.setCapability(MobileCapabilityType.UDID, udid);
