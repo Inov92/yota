@@ -10,8 +10,8 @@ import org.springframework.context.annotation.PropertySources;
 @RequiredArgsConstructor
 @ComponentScan({"com.yota.ta.core"})
 @PropertySources({
-        @PropertySource("classpath:ci.properties"),
-        @PropertySource("classpath:${TA_DEVICE:android9}.properties")
+        @PropertySource("classpath:env/${TA_ENV:local}.properties"),
+        @PropertySource("classpath:devices/${TA_DEVICE:android9}.properties")
 })
 public class AppConfig {
 }
